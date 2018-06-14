@@ -1,4 +1,6 @@
-const Block=require('./block');
-
-const fooBlock =Block.mineBlock(Block.genesis(),'foooo');
-console.log(fooBlock.toString());
+const Blockchain=require('./blockchain')
+const bc =new Blockchain();
+for (var i = 0; i < 4; i++) {
+console.log(bc.addBlock(`riya ${i}`).toString());
+	
+}
