@@ -21,7 +21,7 @@ class Transaction {
       { amount, address: recipient }
     ])
     //---------------------------
-   //Transaction.signTransaction(transaction,senderWallet);
+   Transaction.signTransaction(transaction,senderWallet);
     return transaction;
   }
 //--------------------------
@@ -34,7 +34,14 @@ class Transaction {
   };
 }
 //-----------------------------
-
+  //verifying transaction-3 param. 1->publickey 2->sign 3->data
+  static verifyTransaction(transaction) {
+  return ChainUtil.verifySignature(
+    transaction.input.address,
+    transaction.input.signature,
+    ChainUtil.hash(transaction.outputs)
+  );
+}
 }
 
 module.exports = Transaction;
