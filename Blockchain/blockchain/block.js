@@ -1,4 +1,4 @@
-const SHA256 = require('crypto-js/sha256');
+const ChainUtil = require('../chain-util');
 const { DIFFICULTY,MINERATE } = require('../config');
 class Block {
 	constructor(timestamp, lasthash, hash, data, nonce,difficulty) 
@@ -53,7 +53,7 @@ class Block {
 		}
 	static hash(timestamp,lasthash,data,nonce,difficulty)
 	{
-      return SHA256(`${timestamp}${lasthash}${data}${nonce}${difficulty}`).toString();
+      return ChainUtil.hash(`${timestamp}${lasthash}${data}${nonce}${difficulty}`).toString();
 	}
 	//caluc hash from the block
 	static blockHash(block)

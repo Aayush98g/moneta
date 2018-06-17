@@ -1,3 +1,4 @@
 const DIFFICULTY = 5;
 const MINERATE=3000;
-module.exports = { DIFFICULTY, MINERATE};
+const INITIAL_BALANCE  = 500;
+module.exports = { DIFFICULTY, MINERATE,INITIAL_BALANCE};
